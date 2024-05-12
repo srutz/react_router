@@ -8,4 +8,5 @@ Uses:
 - React-Dom
 - React-Router
 - Vite
-
+- Vitest
+- Tailwind.css
