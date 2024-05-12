@@ -1,22 +1,13 @@
 
-import { Outlet, RouteObject, RouterProvider, createBrowserRouter, useLocation, useNavigate } from "react-router-dom"
+import { Outlet, RouteObject, RouterProvider, createBrowserRouter, } from "react-router-dom"
 import { MenuBar } from "./MenuBar"
 import { Home } from "./routes/Home"
 import { About } from "./routes/About"
 import { Contact } from "./routes/Contact"
 
 
+
 function Content() {
-    /*
-    const location = useLocation()
-    const navigate = useNavigate()
-    console.log("loc is: " + location.pathname)
-    useLayoutEffect(() => {
-        if (location.pathname === "/about") {
-            navigate("/contact")
-        }
-    })
-    */
     return (
         <>
             <MenuBar />

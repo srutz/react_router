@@ -1,6 +1,7 @@
+import { CSSProperties, PropsWithChildren } from "react"
 import { TransitionLink } from "./TransitionLink"
 
-export function MenuBar() {
+export function MenuBar(props: PropsWithChildren) {
     const menuitems: { id: number, display: string, link: string }[] = [
         {
             id: 1,
@@ -18,6 +19,7 @@ export function MenuBar() {
             link: '/contact'
         }
     ]
+    const style: CSSProperties = { }
     return (
         <div className="flex gap-4 bg-white items-baseline self-stretch p-4 border-b border-gray-300">
             <div className="text-xl font-bold truncate">React Cologne</div>
