@@ -27,27 +27,15 @@ function Content() {
     )
 }
 
-export const allroutes: RouteObject[] = [
-    {
-        path: '/',
-        element: <Content></Content>,
-        children: [
-            {
-                path: '/',
-                element: <Home></Home>
-            },
-            {
-                path: '/about',
-                element: <About></About>
-            },
-            {
-                path: '/contact',
-                element: <Contact></Contact>
-            },
-        ]
-    },
-]
-
+export const allroutes: RouteObject[] = [ {
+    path: '/',
+    element: <Content></Content>,  // hier <Outlet> benutzen
+    children: [
+        { path: '/', element: <Home></Home> },
+        { path: '/about', element: <About></About> },
+        { path: '/contact', element: <Contact></Contact> },
+    ]
+}]
 const router = createBrowserRouter(allroutes)
 
 export function Router() {
