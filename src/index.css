@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height: 100vh
+}
+
+#root {
+    align-self: stretch;
+    flex-grow: 1;
+    @apply grow flex flex-col;
+}
+
+button {
+    @apply w-full bg-blue-500 text-white p-4
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    @apply text-blue-800;
+}
+
+a:hover {
+    @apply text-blue-600;
+}
+
+a.active {
+    @apply border-b-2 border-blue-500;
+}
+
+/*
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-out {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes slide-from-right {
+    from {
+        transform: translateX(30px);
+    }
+}
+
+@keyframes slide-to-left {
+    to {
+        transform: translateX(-30px);
+    }
+}
+
+::view-transition-old(root) {
+    animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
+        300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+}
+
+::view-transition-new(root) {
+    animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
+        300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+}
+*/
