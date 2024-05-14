@@ -1,7 +1,7 @@
-import { CSSProperties, PropsWithChildren } from "react"
+import React, { CSSProperties, ReactNode, useEffect, useState } from "react"
 import { TransitionLink } from "./TransitionLink"
 
-export function MenuBar(props: PropsWithChildren) {
+export function MenuBar() {
     const menuitems: { id: number, display: string, link: string }[] = [
         {
             id: 1,
@@ -17,12 +17,23 @@ export function MenuBar(props: PropsWithChildren) {
             id: 3,
             display: 'Contact',
             link: '/contact'
+        },
+        {
+            id: 4,
+            display: 'Quotes',
+            link: '/quotes'
         }
     ]
-    const style: CSSProperties = { }
+
+    function NavTitle({title}: {title: string}) {
+        return <div className="text-xl font-bold truncate">{title}</div>
+    }
+
+
+
     return (
         <div className="flex gap-4 bg-white items-baseline self-stretch p-4 border-b border-gray-300">
-            <div className="text-xl font-bold truncate">React Cologne</div>
+            <NavTitle title="React Cologne" />
             <div className="w-8"></div>
             {menuitems.map((item) => <TransitionLink key={item.id} to={item.link}>{item.display}</TransitionLink>)}
         </div>
