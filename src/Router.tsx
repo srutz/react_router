@@ -4,6 +4,7 @@ import { MenuBar } from "./MenuBar"
 import { Home } from "./routes/Home"
 import { About } from "./routes/About"
 import { Contact } from "./routes/Contact"
+import { Quotes } from "./routes/Quotes"
 
 
 function Content() {
@@ -34,6 +35,7 @@ export const allroutes: RouteObject[] = [ {
         { path: '/', element: <Home></Home> },
         { path: '/about', element: <About></About> },
         { path: '/contact', element: <Contact></Contact> },
+        { path: '/quotes', element: <Quotes></Quotes> },
     ]
 }]
 const router = createBrowserRouter(allroutes)
