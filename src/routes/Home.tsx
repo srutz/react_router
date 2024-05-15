@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react"
+import { CSSProperties, useEffect, useState } from "react"
 import { useWindowSize } from "../WindowSize"
+import { Link, useNavigate } from "react-router-dom"
 
 /**
  * a reacthook that triggers a re-render every periodMs 
@@ -22,16 +23,20 @@ export function useInterval(periodMs: number) {
 
 
 export function Home() {
-
     const [count, setCount] = useState(0)
     const size = useWindowSize()
-    useInterval(100)  // re-render every 500ms
+    const navigate = useNavigate()
+
+    const onClick = () => {
+        navigate("/quotes")
+    }
+
     return (
         <div id="key123" className="flex flex-col">
             <div className="text-center text-4xl font-bold">{count}</div>
             <button onClick={() => setCount(count + 1)} >Increment</button>
             <div>Breite ist {size.width < 450 ? "schmal" : "breit"}</div>
-            <div>{new Date().getTime()}</div>
+            <div onClick={onClick} className="border-2 p-2 m-2 cursor-pointer">Öffne Quotes</div>
         </div>
     )
 }

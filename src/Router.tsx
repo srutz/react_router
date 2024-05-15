@@ -5,19 +5,10 @@ import { Home } from "./routes/Home"
 import { About } from "./routes/About"
 import { Contact } from "./routes/Contact"
 import { Quotes } from "./routes/Quotes"
+import { useEffect } from "react"
 
 
 function Content() {
-    /*
-    const location = useLocation()
-    const navigate = useNavigate()
-    console.log("loc is: " + location.pathname)
-    useLayoutEffect(() => {
-        if (location.pathname === "/about") {
-            navigate("/contact")
-        }
-    })
-    */
     return (
         <>
             <MenuBar />
@@ -28,16 +19,29 @@ function Content() {
     )
 }
 
-export const allroutes: RouteObject[] = [ {
-    path: '/',
-    element: <Content></Content>,  // hier <Outlet> benutzen
-    children: [
-        { path: '/', element: <Home></Home> },
-        { path: '/about', element: <About></About> },
-        { path: '/contact', element: <Contact></Contact> },
-        { path: '/quotes', element: <Quotes></Quotes> },
-    ]
-}]
+
+export const allroutes: RouteObject[] = [
+    {
+        path: '/',
+        element: <Content></Content>,  // hier <Outlet> benutzen
+        children: [
+            { path: '/', element: <Home></Home> },
+            { path: '/about', element: <About></About>,
+                children: [
+                    {
+                        path: "/about/detailinfo", element: <div>Interessante Details</div>
+                    }
+                ] },
+            { path: '/contact', element: <Contact></Contact> },
+            { path: '/quotes', element: <Quotes></Quotes> },
+        ],
+    },
+    {
+        path: "/*", element: <div>fallback</div>
+    },
+]
+
+
 const router = createBrowserRouter(allroutes)
 
 export function Router() {

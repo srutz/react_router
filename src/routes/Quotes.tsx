@@ -31,7 +31,6 @@ export function useQuotes(n: number): [Quote[], boolean ] {
 }
 
 export function Quotes() {
-    console.log("rendering")
     const [ quotes, loading ] = useQuotes(5)
     if (loading) {
         return <div>Backend arbeitet hart</div>
