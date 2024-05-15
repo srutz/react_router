@@ -1,39 +1,13 @@
-import { useEffect, useState } from "react"
-
-type Quote = {
-    id: number
-    quote: string
-    author: string
-}
-type QuotesResponse = { quotes: Quote[] }
-
-function delayAsync(ms: number) { return new Promise((resolve) => { setTimeout(resolve, ms) }) }
-
-/**
- * LoadQuotes hook to fetch n quotes from dummyjson
- */
-export function useQuotes(n: number): [Quote[], boolean ] {
-    const [quotes, setQuotes] = useState<Quote[]>([])
-    const [loading, setLoading] = useState(false)
-
-    useEffect(() => {
-        const fetchQuotes = async () => {
-            setLoading(true)
-            const data = await (await fetch("https://dummyjson.com/quotes?limit=100")).json()
-            const quotesResponse = data as QuotesResponse
-            await delayAsync(1_000)
-            setLoading(false)
-            setQuotes(quotesResponse.quotes)
-        }
-        fetchQuotes();
-    }, [n])
-    return [ quotes, loading ]
-}
+import { useQuotes } from "../LoadQuotes"
 
 export function Quotes() {
-    const [ quotes, loading ] = useQuotes(5)
+    console.log("rendering")
+    const [ quotes, loading, error ] = useQuotes(5)
+    if (error) {
+        return <div>Fehler bei der Abfrage {error}</div>
+    }
     if (loading) {
-        return <div>Backend arbeitet hart</div>
+        return <div>Die Daten werden geladen</div>
     }
     return <div className="flex flex-col p-4">
         {quotes.map((q) => (

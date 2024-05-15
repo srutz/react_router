@@ -1,5 +1,13 @@
 import { NavLink, useLocation } from "react-router-dom"
 
+/*
+ * MenuBar component, displays the menu items
+ * 
+ * The menuitems are hardcoded in this example
+ * 
+ * 
+ * @returns MenuBar component
+ */
 export function MenuBar() {
     const menuitems: { id: number, display: string, link: string }[] = [
         { id: 1, display: 'Home', link: '/' },

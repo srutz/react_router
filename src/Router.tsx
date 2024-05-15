@@ -1,11 +1,11 @@
 
-import { Outlet, RouteObject, RouterProvider, createBrowserRouter, useLocation, useNavigate } from "react-router-dom"
+import { Outlet, RouteObject, RouterProvider, createBrowserRouter, } from "react-router-dom"
 import { MenuBar } from "./MenuBar"
 import { Home } from "./routes/Home"
 import { About } from "./routes/About"
 import { Contact } from "./routes/Contact"
 import { Quotes } from "./routes/Quotes"
-import { useEffect } from "react"
+
 
 
 function Content() {

@@ -2,6 +2,7 @@ import { CSSProperties, useEffect, useState } from "react"
 import { useWindowSize } from "../WindowSize"
 import { Link, useNavigate } from "react-router-dom"
 
+
 /**
  * a reacthook that triggers a re-render every periodMs 
  * @param periodMs 
