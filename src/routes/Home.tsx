@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useWindowSize } from "../WindowSize"
 
+
 /**
  * a reacthook that triggers a re-render every periodMs 
  * @param periodMs 
@@ -25,7 +26,7 @@ export function Home() {
 
     const [count, setCount] = useState(0)
     const size = useWindowSize()
-    useInterval(100)  // re-render every 500ms
+    useInterval(750)  // re-render every 750ms
     return (
         <div id="key123" className="flex flex-col">
             <div className="text-center text-4xl font-bold">{count}</div>
