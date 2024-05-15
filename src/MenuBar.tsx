@@ -1,5 +1,13 @@
 import { TransitionLink } from "./TransitionLink"
 
+/*
+ * MenuBar component, displays the menu items
+ * 
+ * The menuitems are hardcoded in this example
+ * 
+ * 
+ * @returns MenuBar component
+ */
 export function MenuBar() {
     const menuitems: { id: number, display: string, link: string }[] = [
         {
