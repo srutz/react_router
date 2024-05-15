@@ -1,9 +1,12 @@
+import { useWindowSize } from "../WindowSize"
+
 
 export function Contact() {
+    console.log("Rendering Contact")
+    const size = useWindowSize()
     return (
-        <div className="flex flex-col gap-4">
-            <div className="text-center text-4xl font-bold">Don't call us, we will call you</div>
-            <img className="mx-auto w-96" src="/pexelsvan.jpg" alt="van"></img>
-        </div>
-    )
+        <div data-reactcomp={new Date().toLocaleTimeString()} className="flex flex-col gap-4" >
+            <div>width={size.width}, height={size.height}</div>
+            {size.width < 400 && <div>zu schmal</div>}
+        </div>)
 }
