@@ -1,10 +1,10 @@
 
-import { Outlet, RouteObject, RouterProvider, createBrowserRouter, } from "react-router-dom"
+import { Outlet, RouteObject, RouterProvider, createBrowserRouter, createHashRouter, useLocation, } from "react-router-dom"
 import { MenuBar } from "./MenuBar"
 import { Home } from "./routes/Home"
 import { About } from "./routes/About"
 import { Contact } from "./routes/Contact"
-import { Quotes } from "./routes/Quotes"
+import { QuoteDetails, Quotes } from "./routes/Quotes"
 
 
 
@@ -33,17 +33,34 @@ export const allroutes: RouteObject[] = [
                     }
                 ] },
             { path: '/contact', element: <Contact></Contact> },
-            { path: '/quotes', element: <Quotes></Quotes> },
+            { path: '/quotes', element: <Quotes></Quotes>, children: [
+                { 
+                    path: '/quotes/:id/:sort', element: <QuoteDetails></QuoteDetails> },
+            ],  },
         ],
     },
     {
-        path: "/*", element: <div>fallback</div>
+        path: "/*", element: <NotFound></NotFound>
     },
 ]
 
+export function NotFound() {
+    const location = useLocation()
+    return <div>Route not found: {location.pathname}</div>
+}
 
-const router = createBrowserRouter(allroutes)
+
+
+const router = createHashRouter(allroutes)
 
 export function Router() {
     return <RouterProvider router={router} />
 }
+
+/*
+Normalen routen           |  Hash routes
+---------------------------------------------------------
+https://myapp/quotes      |  https://myapp/#/quotes
+https://myapp/quotes/2    |  https://myapp/#/quotes/2
+
+*/
